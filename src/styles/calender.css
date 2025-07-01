@@ -1,0 +1,97 @@
+/* === Calendar Container === */
+.react-calendar {
+  width: 100%;
+  max-width: 350px;
+  background: #ffe4e6; /* rose-100 */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: none;
+}
+
+/* === Navigation Bar === */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  border: none;
+  color: #be123c; /* rose-700 */
+  font-size: 1.1rem;
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  transition: background 0.2s ease;
+}
+
+.react-calendar__navigation button:hover {
+  background: #fecdd3; /* rose-300 */
+}
+
+/* === Weekdays Heading === */
+.react-calendar__month-view__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #9f1239; /* rose-800 */
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  cursor: default;
+}
+
+/* === Dates Grid === */
+.react-calendar__month-view__days {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 0.4rem;
+}
+
+/* === Date Tiles === */
+.react-calendar__tile {
+  text-align: center;
+  line-height: 2.5rem; /* match the height */    
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #374151; /* gray-800 */
+  transition: background-color 0.2s ease;
+}
+
+/* No blue highlight on today */
+.react-calendar__tile--now {
+  background: transparent !important;
+}
+
+/* Hover effect */
+.react-calendar__tile:hover {
+  background: #ffe4e6; /* rose-200 */
+}
+
+/* === Period Dates === */
+.react-calendar__tile.period-date {
+  background-color: #f43f5e; /* rose-500 */
+  color: white;
+  font-weight: 600;
+}
+
+/* === Predicted Dates === */
+.react-calendar__tile.predicted-date {
+  background-color: #fda4af; /* rose-300 */
+  color: #831843; /* rose-900 */
+  font-weight: 500;
+}
