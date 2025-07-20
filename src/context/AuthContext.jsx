@@ -7,7 +7,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check session on mount
   useEffect(() => {
     const getSession = async () => {
       const {
@@ -54,6 +53,22 @@ export function AuthProvider({ children }) {
     return data;
   };
 
+  const signInWithGoogle = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+    if (error) throw error;
+    return data;
+  };
+
+  const signInWithGitHub = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+    });
+    if (error) throw error;
+    return data;
+  };
+
   const logout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
@@ -61,7 +76,16 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, setUser, signUp, signIn, logout }}
+      value={{
+        user,
+        loading,
+        setUser,
+        signUp,
+        signIn,
+        logout,
+        signInWithGoogle,
+        signInWithGitHub,
+      }}
     >
       {children}
     </AuthContext.Provider>
